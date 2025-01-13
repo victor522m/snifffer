@@ -2,14 +2,18 @@ package com.ejemplo.sniffer.controller;
 
 import com.ejemplo.sniffer.model.NetworkInterfaceModel;
 import com.ejemplo.sniffer.model.PacketModel;
+import com.ejemplo.sniffer.view.SnifferView;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import org.pcap4j.core.PcapNetworkInterface;
 import org.pcap4j.packet.Packet;
 
 import java.util.List;
 
-public class SnifferController {
+public class SnifferController extends Application {
     private final NetworkInterfaceModel networkModel;
     private final PacketModel packetModel;
+    private SnifferView view;
 
     public SnifferController() {
         this.networkModel = new NetworkInterfaceModel();
@@ -30,5 +34,15 @@ public class SnifferController {
 
     public void stopSniffing() {
         packetModel.closeInterface();
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        view = new SnifferView(this);
+        view.start(primaryStage);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }

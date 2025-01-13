@@ -1,3 +1,10 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "C:/Program Files/Java/javafx-sdk-23.0.1/lib/*.jar"
+    ],
+    "java.project.sourcePaths": [
+        "src"
+    ]
 }
